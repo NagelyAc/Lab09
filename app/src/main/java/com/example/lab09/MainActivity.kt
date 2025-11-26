@@ -41,12 +41,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Lab09Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                ProgPrincipal9()
             }
         }
     }
@@ -62,7 +57,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun ProgPrincipal9(){
-    val urlBase="https://json-placeholder.mock.beeceptor.com/"
+    // val urlBase="https://json-placeholder.mock.beeceptor.com/"
+    val urlBase="https://dummyjson.com/"
     val retrofit = Retrofit.Builder().baseUrl(urlBase)
         .addConverterFactory(GsonConverterFactory.create()).build()
     val servicio = retrofit.create(PostApiService::class.java)
@@ -81,7 +77,8 @@ fun BarraSuperior(){
     CenterAlignedTopAppBar(
         title={
             Text(
-                text = "JSONPlaceHolder Access",
+                //text = "JSONPlaceHolder Access",
+                text = "DummyJSON Posts",
                 color = Color.White,
                 fontWeight = FontWeight.Bold
             )
